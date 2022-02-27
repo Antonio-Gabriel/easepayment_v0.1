@@ -1,3 +1,4 @@
+from .UserProps import UserProps
 from .ClassProps import ClassProps
 from .OwnerProps import OwnerProps
 from .CourseProps import CourseProps
