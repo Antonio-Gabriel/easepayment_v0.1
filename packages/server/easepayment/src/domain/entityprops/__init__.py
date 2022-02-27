@@ -3,3 +3,4 @@ from .CourseProps import CourseProps
 from .ClassProps import ClassProps
 from .ClassRelatedCourseProps import ClassRelatedCourseProps
 from .OwnerProps import OwnerProps
+from .StudentProps import StudentProps
