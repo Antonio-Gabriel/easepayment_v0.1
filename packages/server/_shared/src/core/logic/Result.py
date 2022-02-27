@@ -26,7 +26,7 @@ class Result(Generic[T]):
         self.IS_SUCCESS = is_success
         self.IS_FAILURE = not is_success
         self.ERROR = error
-        self._value = value
+        self._value: T = value
 
     def get_value(self) -> T:
         """Return value error"""
@@ -41,7 +41,7 @@ class Result(Generic[T]):
     def error_value(self) -> T:
         """Return error message"""
 
-        return self._value
+        return self.ERROR
 
     @classmethod
     def ok(cls, value: Generic[U] = None):
@@ -51,4 +51,4 @@ class Result(Generic[T]):
     @classmethod
     def fail(cls, error: any):
         """Return fail message"""
-        return Result[U](True, error)
+        return Result[U](False, error)
