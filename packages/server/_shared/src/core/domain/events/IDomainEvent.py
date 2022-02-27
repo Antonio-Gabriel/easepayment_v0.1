@@ -1,13 +1,10 @@
 from abc import ABC, abstractmethod
-
-from click import DateTime
+from typing import Type
 
 
 class IDomainEvent(ABC):
     """Usecase interface"""
 
-    date_time_occurred: DateTime = None
-
     @abstractmethod
-    def get_aggregate_id() -> int:
+    def dispatch(event: Type[any]) -> int:
         raise NotImplementedError("Method not implemented")
