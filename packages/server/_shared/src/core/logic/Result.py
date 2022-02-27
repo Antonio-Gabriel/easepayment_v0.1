@@ -7,7 +7,6 @@ U = TypeVar("U")
 class Result(Generic[T]):
 
     IS_SUCCESS: bool
-    IS_FAILURE: bool
     ERROR: Union[T, str]
 
     def __init__(
@@ -24,7 +23,6 @@ class Result(Generic[T]):
             )
 
         self.IS_SUCCESS = is_success
-        self.IS_FAILURE = not is_success
         self.ERROR = error
         self._value: T = value
 
