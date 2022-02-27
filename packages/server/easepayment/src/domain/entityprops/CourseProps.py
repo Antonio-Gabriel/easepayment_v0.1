@@ -1,10 +1,10 @@
-import dataclasses
 import datetime
+from dataclasses import dataclass
 
 
-@dataclasses
+@dataclass
 class CourseProps:
     name: str
-    state: bool
-    created_at: datetime
-    updated_ap: datetime
+    created_at: datetime = None
+    updated_at: datetime = None
+    state: bool = True

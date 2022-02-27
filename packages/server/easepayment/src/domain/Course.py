@@ -1,3 +1,4 @@
+from datetime import datetime
 from packages.server._shared.src.core.domain import Entity
 
 from .entityprops import CourseProps
@@ -12,6 +13,14 @@ class Course:
     def create(cls, props: CourseProps, id: str = None):
         """create course object"""
 
-        course = cls.__private(props, id)
+        course = cls.__private(
+            CourseProps(
+                name=props.name,
+                state=props.state,
+                created_at=datetime.now(),
+                updated_at=datetime.now(),
+            ),
+            id,
+        )
 
         return course
