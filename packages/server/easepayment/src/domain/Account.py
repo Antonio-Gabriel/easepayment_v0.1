@@ -1,4 +1,6 @@
 from packages.server._shared.src.core.domain import Entity
+from packages.server._shared.src.core.logic import Result, Guard
+
 from .validators import PasswordHash
 from .entityprops import AccountProps
 
@@ -9,15 +11,22 @@ class Account:
             super().__init__(props, id)
 
     @classmethod
-    def create(cls, props: AccountProps, id: str = None):
+    def create(cls, props: AccountProps, id: str = None) -> Result[AccountProps]:
         """create account object"""
+
+        guard_result = Guard.against_null_or_empty_bulk(
+            **{"username": props.username, "password": props.password}
+        )
+
+        if guard_result is not None and not guard_result.succeeded:
+            return Result.fail(guard_result.message)
 
         account = cls.__private(props, id)
 
         if account.props.password:
             account.props.password = cls.__password_encrypt(account.props.password)
 
-        return account
+        return Result.ok(account.props)
 
     @classmethod
     def __password_encrypt(cls, password) -> bytes:
@@ -33,4 +42,4 @@ class Account:
 
             return PasswordHash.compare(hash_pass, comparison_pass)
 
-        raise Exception("Do you don't insert password")
+        return Result.fail("Complete the parameters to compare passwords")
