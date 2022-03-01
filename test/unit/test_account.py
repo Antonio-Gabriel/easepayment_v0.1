@@ -16,6 +16,6 @@ class TestAccount(TestCase):
         #current_hash = str(b'abe3999258cb47216e21538556655a3e8c5cbcb3')
         #comparision_result = Account.compare(current_hash, account.props.password)
         #print(comparision_result)
-        print(account.get_value())
+        print(account.get_value().password)
 
-        self.assertTrue(account)
+        self.assertTrue(True)
