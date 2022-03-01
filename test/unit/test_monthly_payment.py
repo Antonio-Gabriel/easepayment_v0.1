@@ -19,7 +19,7 @@ class TestMonthlyPaymentEntity(TestCase):
                 month="Janeiro"
             ),
         )
-
+        print(payment)
         # print(payment.get_value())
         # print("oi")
 
