@@ -1,12 +1,20 @@
-from abc import ABC, abstractmethod
 from typing import Type
+from abc import ABC, abstractmethod
 
-from packages.server.easepayment.src.domain.interfaces import IPayment
+
+class IPayment(ABC):
+    @abstractmethod
+    def payment_role(*args, **kwargs):
+        """Rule from pay"""
+
+        raise NotImplementedError("Method not implemented")
 
 
-class IDomainEvent(ABC):
+class IDomainEvents(ABC):
     """Usecase interface"""
 
     @abstractmethod
-    def dispatch(event: Type[any], payment_type: Type[IPayment]) -> int:
+    def dispatch(event: Type[any], payment_type: Type[IPayment]):
+        """Dispatch event"""
+
         raise NotImplementedError("Method not implemented")
