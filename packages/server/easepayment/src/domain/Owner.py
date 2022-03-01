@@ -1,7 +1,8 @@
-from dataclasses import dataclass
 from packages.server._shared.src.core.domain import Entity
 from packages.server._shared.src.core.logic import Result, Guard
 
+from uuid import uuid4
+from dataclasses import dataclass
 from .entityprops import OwnerProps
 from .validators import Email, Phone
 
@@ -19,6 +20,9 @@ class Owner:
     @classmethod
     def create(cls, props: OwnerProps, id: int = None):
         """create owner object"""
+
+        if not id:
+            id = uuid4()
 
         guard_result = Guard.against_null_or_empty_bulk(
             **{"name": props.name, "email": props.email, "phone": props.phone}
