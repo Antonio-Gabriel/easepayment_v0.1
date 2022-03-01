@@ -1,13 +1,12 @@
-
 from dataclasses import dataclass
 from datetime import datetime
 
 
 @dataclass
 class UserProps:
-    accountId: int
-    ownerId: int
-    studentId: int
+    accountId: str
+    ownerId: str
+    studentId: str
     created_at: datetime = None
     updated_at: datetime = None
-    state: bool = True  
+    state: bool = True
