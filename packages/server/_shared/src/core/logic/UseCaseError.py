@@ -8,5 +8,5 @@ class IUseCaseErrorError:
 
 
 class UseCaseError(ABC, IUseCaseErrorError):
-    def __init__(self, message: str):
-        self.message = message
+    def __init__(self, error: IUseCaseErrorError):
+        self.message = error.message
