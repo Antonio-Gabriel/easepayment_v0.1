@@ -1,8 +1,8 @@
-from dataclasses import dataclass
-from uuid import uuid4
 from packages.server._shared.src.core.domain import Entity
 from packages.server._shared.src.core.logic import Result, Guard
 
+from uuid import uuid4
+from dataclasses import dataclass
 from .validators import PasswordHash
 from .entityprops import AccountProps
 
