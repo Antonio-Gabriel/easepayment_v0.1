@@ -1,14 +1,15 @@
 from typing import Type
-from packages.server._shared.src.core.domain.events.IDomainEvent import IDomainEvent
+
+from packages.server._shared.src.core.domain import IDomainEvents
 
 from ..interfaces import IPayment
 
 
-class PaymentBasedCreatedEvent(IDomainEvent):
+class PaymentBasedCreatedEvent(IDomainEvents):
+    def __init__(self):
+        self.__event_processed: any = None
 
-    __event_processed: any = None
-
-    def dispatch(event: Type[any], payment_type: Type[IPayment]):
+    def dispatch(self, event: Type[any], payment_type: Type[IPayment]):
         """Dispatch payment based for using the last id"""
 
         payment_result = payment_type.payment_role(
@@ -19,10 +20,9 @@ class PaymentBasedCreatedEvent(IDomainEvent):
             }
         )
 
-        PaymentBasedCreatedEvent.__event_processed = payment_result
+        self.__event_processed = payment_result
 
-    @staticmethod
-    def release_event():
+    def release_event(self):
         """Return event result"""
 
-        return PaymentBasedCreatedEvent.__event_processed
+        return self.__event_processed
