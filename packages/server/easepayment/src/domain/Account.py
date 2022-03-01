@@ -1,8 +1,15 @@
+from dataclasses import dataclass
+from uuid import uuid4
 from packages.server._shared.src.core.domain import Entity
 from packages.server._shared.src.core.logic import Result, Guard
 
 from .validators import PasswordHash
 from .entityprops import AccountProps
+
+
+@dataclass
+class AccountPropsResult(AccountProps):
+    id: str
 
 
 class Account:
@@ -14,6 +21,9 @@ class Account:
     def create(cls, props: AccountProps, id: str = None) -> Result[AccountProps]:
         """create account object"""
 
+        if not id:
+            id = uuid4()
+
         guard_result = Guard.against_null_or_empty_bulk(
             **{"username": props.username, "password": props.password}
         )
@@ -21,12 +31,16 @@ class Account:
         if guard_result is not None and not guard_result.succeeded:
             return Result.fail(guard_result.message)
 
+        if props.password:
+            props.password = cls.__password_encrypt(props.password)
+
         account = cls.__private(props, id)
 
-        if account.props.password:
-            account.props.password = cls.__password_encrypt(account.props.password)
-
-        return Result.ok(account.props)
+        return Result.ok(
+            AccountPropsResult(
+                id=id, password=account.props.password, username=account.props.username
+            )
+        )
 
     @classmethod
     def __password_encrypt(cls, password) -> bytes:
