@@ -36,6 +36,7 @@ class Payment:
 
         payment = cls.__private(props, id)
 
-        PaymentBasedCreatedEvent.dispatch(payment, payment_type)
+        payment_created_event = PaymentBasedCreatedEvent()
+        payment_created_event.dispatch(payment, payment_type)
 
         return Result.ok(payment.props)
