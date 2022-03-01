@@ -6,6 +6,6 @@ class Phone:
     def is_valid(phone: str):
         """Returns true if the phone number is valid"""
 
-        expretion = r"/^(?:(\+244|00244))?(9)(1|2|3|4|9)([\d]{7,7})$/ix"
+        expretion = r"^(?:(\+244|00244))?(9)(1|2|3|4|9)([\d]{7,7})$"
 
         return True if re.search(expretion, phone) is not None else False
