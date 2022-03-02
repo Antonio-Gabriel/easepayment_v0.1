@@ -41,10 +41,10 @@ class OwnerRepository(IOwnerRepository):
         result = connection.execute(
             statement,
             {
-                "id": owner_props.get_value().id,
-                "name": owner_props.get_value().name,
-                "email": owner_props.get_value().email,
-                "phone": owner_props.get_value().phone,
+                "id": owner_props.id,
+                "name": owner_props.name,
+                "email": owner_props.email,
+                "phone": owner_props.phone,
             },
         )
 
