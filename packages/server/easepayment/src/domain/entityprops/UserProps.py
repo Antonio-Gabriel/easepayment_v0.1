@@ -4,9 +4,9 @@ from datetime import datetime
 
 @dataclass
 class UserProps:
-    accountId: str
-    ownerId: str
-    studentId: str
+    account_id: any
+    owner_id: any
+    student_id: any
     created_at: datetime = None
     updated_at: datetime = None
     state: bool = True
