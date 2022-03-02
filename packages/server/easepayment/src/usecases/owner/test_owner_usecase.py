@@ -12,7 +12,7 @@ class TestOwnerUsecase(TestCase):
         result = create_owner.execute(
             OwnerRequestDTO(
                 name="António Gabriel",
-                email="antoniogabriel1@gmail.com",
+                email="antoniogabriel@gmail.com",
                 phone="+244923565442",
             )
         )
