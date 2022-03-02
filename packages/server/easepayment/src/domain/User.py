@@ -23,7 +23,7 @@ class User:
         if not id:
             id = uuid4()
 
-        if not props.accountId and not props.ownerId:
+        if not props.account_id and not props.owner_id and not props.student_id:
             return Result.fail("Invalid arguments, please check your arguments!")
 
         user = cls.__private(props, id)
@@ -31,7 +31,8 @@ class User:
         return Result.ok(
             UserPropsResult(
                 id=id,
-                accountId=user.props.accountId,
-                ownerId=user.props.ownerId,
+                student_id=user.props.student_id,
+                account_id=user.props.account_id,
+                owner_id=user.props.owner_id,
             )
         )
