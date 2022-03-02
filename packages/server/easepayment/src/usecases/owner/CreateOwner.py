@@ -31,7 +31,7 @@ class CreateOwner(IUseCase[OwnerRequestDTO, Result[None]]):
         if owner_result.error_value():
             return Result.fail(owner_result.error_value())
 
-        owner_save_result = self.__owner_repo.save(owner_result)
+        owner_save_result = self.__owner_repo.save(owner_result.get_value())
 
         if owner_save_result:
 
