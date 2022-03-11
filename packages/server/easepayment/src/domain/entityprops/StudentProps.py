@@ -10,4 +10,5 @@ class StudentProps:
     district: str
     location: str
     avatar: str
+    studentId: str
     state: bool = True
