@@ -6,4 +6,5 @@ from decimal import Decimal
 class ClassRelatedCourseProps:
     classId: str
     courseId: str
+    studentId: str
     price: Decimal = 0.00
