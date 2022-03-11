@@ -5,13 +5,14 @@ from sqlalchemy import (
     Table,
     Column,
     Integer,
+    Float,
     String,
     Text,
     MetaData,
     ForeignKey,
     Boolean,
     DateTime,
-    TIMESTAMP
+    TIMESTAMP,
 )
 
 engine = create_engine("mysql+pymysql://root:root@localhost/exercicio")
@@ -48,6 +49,36 @@ student = Table(
     Column("state", Boolean, default=True),
     Column("student_id", String(40), ForeignKey("student.id")),
 )
+
+classe = Table(
+    "classe",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("name", String(60), nullable=False),
+    Column("state", Boolean, default=True),
+    Column("created_at", TIMESTAMP, default=datetime.now),
+    Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
+)
+
+course = Table(
+    "course",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("name", String(60), nullable=False),
+    Column("state", Boolean, default=True),
+    Column("created_at", TIMESTAMP, default=datetime.now),
+    Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
+)
+
+classe_related_course = Table(
+    "class_related_course",
+    metadata_object,
+    Column("classe_id", String(40), ForeignKey("classe.id")),
+    Column("course_id", String(40), ForeignKey("course.id")),
+    Column("student_id", String(40), ForeignKey("student.id")),
+    Column("price", Float, default=0.00),
+)
+
 
 user = Table(
     "user",
