@@ -1,3 +1,3 @@
-from .models import account, owner, user, engine, classe
+from .models import account, owner, user, engine, classe, student
 
 from .seeders import ResolvingSeeder
