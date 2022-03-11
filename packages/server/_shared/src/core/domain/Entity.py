@@ -12,7 +12,7 @@ class Entity(ABC, Generic[T]):
         Generic (_type_): generic class
     """
 
-    def __init__(self, props: T, id: int = None):
+    def __init__(self, props: T, id: str = None):
         self._id = id
         self.props = props
 
