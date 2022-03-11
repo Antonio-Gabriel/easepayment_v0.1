@@ -58,5 +58,6 @@ class Student:
                 process=student.props.process,
                 district=student.props.district,
                 location=student.props.location,
+                studentId=student.props.studentId,
             )
         )
