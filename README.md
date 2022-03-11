@@ -47,7 +47,7 @@ Os pontos pendentes da aplicação em questão.
 
 ## Diagrama da base de dados
 
-<img src="assets/diagramImage.png" alt="Easepayment logo" width="100%" >
+<img src="assets/diagramImage2.png" alt="Easepayment logo" width="100%" >
 
 
 ## License
