@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from .ClassRelatedCourseProps import ClassRelatedCourseProps
 
 
 @dataclass
@@ -11,5 +10,4 @@ class StudentProps:
     district: str
     location: str
     avatar: str
-    classCourse: ClassRelatedCourseProps
     state: bool = True
