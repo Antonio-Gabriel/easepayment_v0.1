@@ -1,3 +1,4 @@
+#!python3
 from datetime import datetime
 
 from sqlalchemy import (
@@ -92,5 +93,11 @@ user = Table(
     Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
 )
 
+owner_related_student = Table(
+    "student_related_owner",
+    metadata_object,
+    Column("owner_id", String(40), ForeignKey("owner.id")),
+    Column("student_id", String(40), ForeignKey("student.id")),
+)
 
 metadata_object.create_all()
