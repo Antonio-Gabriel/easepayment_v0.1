@@ -1,1 +1,1 @@
-from .sqlAlchemy import ResolvingSeeder
+from .sqlAlchemy import ResolvingSeeder, metadata_object
