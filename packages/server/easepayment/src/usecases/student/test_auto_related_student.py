@@ -22,6 +22,6 @@ class TestAutoRelatedStudent(TestCase):
         if error:
             print(result.error_value())
         else:
-            print(result.get_value().id)
+            print(result.get_value().student_id)
 
         self.assertTrue(True)
