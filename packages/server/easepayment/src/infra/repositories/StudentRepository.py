@@ -1,9 +1,9 @@
+from sqlalchemy.sql import select
+from ..sqlAlchemy import engine, student
+
 from ...repositories import IStudentRepository
 
 from ...domain.entityprops import StudentProps
-
-from sqlalchemy.sql import select
-from ..sqlAlchemy import engine, student
 
 
 class StudentRepository(IStudentRepository):
