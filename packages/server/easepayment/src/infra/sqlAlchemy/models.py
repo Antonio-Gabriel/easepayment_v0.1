@@ -16,7 +16,7 @@ from sqlalchemy import (
     TIMESTAMP,
 )
 
-engine = create_engine("mysql+pymysql://root:root@localhost/exercicio")
+engine = create_engine("mysql+pymysql://root@localhost/exercicio")
 metadata_object = MetaData(bind=engine)
 
 owner = Table(
