@@ -4,3 +4,4 @@ from .IAccountRepository import IAccountRepository
 from .IUserRepository import IUserRepository
 from .IStudentRepository import IStudentRepository
 from .IOwnerRelatedStudentRepository import IOwnerRelatedStudentRepository
+from .IClasseRelatedCourse import IClasseRelatedCourseRepository

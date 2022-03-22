@@ -7,3 +7,4 @@ from .Owner import Owner
 from .User import User
 from .Student import Student
 from .StudentRelatedOwner import StudentRelatedOwner
+from .ClassRelatedCourse import ClassRelatedCourse
