@@ -1,8 +1,8 @@
-from ...domain.entityprops import ClassRelatedCourseProps
-from ...repositories import IClasseRelatedCourseRepository
-
 from sqlalchemy.sql import select
 from ..sqlAlchemy import engine, classe_related_course
+
+from ...domain.entityprops import ClassRelatedCourseProps
+from ...repositories import IClasseRelatedCourseRepository
 
 
 class ClasseRelatedCourseRepository(IClasseRelatedCourseRepository):

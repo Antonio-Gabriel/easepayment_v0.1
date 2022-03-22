@@ -1,7 +1,7 @@
-from packages.server._shared.src.core.domain import Entity
-from packages.server._shared.src.core.logic import Result
-
 from .entityprops import ClassRelatedCourseProps
+
+from packages.server._shared.src.core.logic import Result
+from packages.server._shared.src.core.domain import Entity
 
 
 class ClassRelatedCourse:

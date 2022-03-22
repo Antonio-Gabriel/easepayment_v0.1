@@ -1,6 +1,6 @@
-from packages.server._shared.src.core.domain import Entity
-
 from .entityprops import WallerProps
+
+from packages.server._shared.src.core.domain import Entity
 
 
 class Wallet:

@@ -1,10 +1,10 @@
-from packages.server._shared.src.core.domain import Entity
-from packages.server._shared.src.core.logic import Result, Guard
-
 from uuid import uuid4
 from dataclasses import dataclass
 from .entityprops import OwnerProps
 from .validators import Email, Phone
+
+from packages.server._shared.src.core.domain import Entity
+from packages.server._shared.src.core.logic import Result, Guard
 
 
 @dataclass

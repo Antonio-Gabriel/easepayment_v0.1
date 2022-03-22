@@ -1,13 +1,13 @@
-from datetime import datetime
-from typing import Type
-from packages.server._shared.src.core.domain import Entity
-from packages.server._shared.src.core.logic import Result
-
 from uuid import uuid4
 
+from typing import Type
+from datetime import datetime
 from .interfaces import IPayment
 from .entityprops import PaymentProps
 from .events import PaymentBasedCreatedEvent
+
+from packages.server._shared.src.core.logic import Result
+from packages.server._shared.src.core.domain import Entity
 
 
 class Payment:

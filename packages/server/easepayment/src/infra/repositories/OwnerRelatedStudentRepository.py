@@ -1,8 +1,8 @@
-from ...domain.entityprops import StudentRelatedOwnerProps
-from ...repositories import IOwnerRelatedStudentRepository
-
 from sqlalchemy.sql import select
 from ..sqlAlchemy import engine, owner_related_student
+
+from ...domain.entityprops import StudentRelatedOwnerProps
+from ...repositories import IOwnerRelatedStudentRepository
 
 
 class OwnerRelatedStudentRepository(IOwnerRelatedStudentRepository):

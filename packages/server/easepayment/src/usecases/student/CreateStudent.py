@@ -1,10 +1,11 @@
 from typing import Type
 from ...domain import Student
 from packages.server._shared import IUseCase
-from .StudentRequestDTO import StudentRequestDTO
+
 from ...repositories import IStudentRepository
-from .StudentAlreadyExists import StudentAlreadyExists
+from .StudentRequestDTO import StudentRequestDTO
 from .PhoneAlreadyExists import PhoneAlreadyExists
+from .StudentAlreadyExists import StudentAlreadyExists
 from .ProcessAlreadyExists import ProcessAlreadyExists
 
 from packages.server._shared.src.core.logic import Result

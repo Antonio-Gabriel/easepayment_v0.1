@@ -1,6 +1,6 @@
 from typing import List
-from dataclasses import dataclass
 from decimal import Decimal
+from dataclasses import dataclass
 
 from ..interfaces import IPayment
 

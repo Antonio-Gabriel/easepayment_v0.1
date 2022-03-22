@@ -1,8 +1,8 @@
 from typing import Type
 from packages.server._shared import IUseCase
-from packages.server._shared.src.core.logic import Result
 
 from ...domain import ClassRelatedCourse
+from packages.server._shared.src.core.logic import Result
 from ...repositories import IClasseRelatedCourseRepository
 from .StudentAlreadyRegister import StudentAlreadyRegister
 from .RelatedClassAndCourseInStudentRequestDTO import (

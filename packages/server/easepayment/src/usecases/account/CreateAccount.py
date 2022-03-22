@@ -1,8 +1,9 @@
 from typing import Type
 from ...domain import Account
+
 from packages.server._shared import IUseCase
-from .AccountRequestDTO import AccountRequestDTO
 from ...repositories import IAccountRepository
+from .AccountRequestDTO import AccountRequestDTO
 from packages.server._shared.src.core.logic import Result
 
 

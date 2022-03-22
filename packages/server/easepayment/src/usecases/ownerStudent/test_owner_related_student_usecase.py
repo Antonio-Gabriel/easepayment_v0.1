@@ -1,8 +1,8 @@
 from unittest import TestCase
 
 from .RelatedStudentInOwner import RelatedStudentInOwner
-from .RelatedStudentInOwnerRequestDTO import RelatedStudentInOwnerRequestDTO
 from ...infra.repositories import OwnerRelatedStudentRepository
+from .RelatedStudentInOwnerRequestDTO import RelatedStudentInOwnerRequestDTO
 
 
 class TestRelatedOwnerWithStudent(TestCase):

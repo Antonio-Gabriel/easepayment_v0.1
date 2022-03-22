@@ -1,8 +1,8 @@
+from ..sqlAlchemy import engine, user
+
 from ...repositories import IUserRepository
 
 from ...domain.entityprops import UserProps
-
-from ..sqlAlchemy import engine, user
 
 
 class UserRepository(IUserRepository):

@@ -1,8 +1,8 @@
+from ..sqlAlchemy import engine, account
+
 from ...repositories import IAccountRepository
 
 from ...domain.entityprops import AccountProps
-
-from ..sqlAlchemy import engine, account
 
 
 class AccountRepository(IAccountRepository):

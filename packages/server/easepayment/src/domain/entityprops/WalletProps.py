@@ -1,7 +1,6 @@
-
-from dataclasses import dataclass
 import datetime
 from decimal import Decimal
+from dataclasses import dataclass
 
 
 @dataclass

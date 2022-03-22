@@ -1,8 +1,8 @@
 from typing import Type
 
-from packages.server._shared.src.core.domain import IDomainEvents
-
 from ..interfaces import IPayment
+
+from packages.server._shared.src.core.domain import IDomainEvents
 
 
 class PaymentBasedCreatedEvent(IDomainEvents):

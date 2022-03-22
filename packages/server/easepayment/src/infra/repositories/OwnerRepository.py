@@ -1,9 +1,9 @@
+from sqlalchemy.sql import select
+from ..sqlAlchemy import engine, owner
+
 from ...repositories import IOwnerRepository
 
 from ...domain.entityprops import OwnerProps
-
-from sqlalchemy.sql import select
-from ..sqlAlchemy import engine, owner
 
 
 class OwnerRepository(IOwnerRepository):

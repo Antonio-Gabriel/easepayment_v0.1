@@ -1,7 +1,8 @@
 from datetime import datetime
-from packages.server._shared.src.core.domain import Entity
 
 from .entityprops import CourseProps
+
+from packages.server._shared.src.core.domain import Entity
 
 
 class Course:

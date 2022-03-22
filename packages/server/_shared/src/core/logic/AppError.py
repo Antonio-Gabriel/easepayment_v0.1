@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from Result import Result
+from dataclasses import dataclass
 from UseCaseError import UseCaseError
 
 

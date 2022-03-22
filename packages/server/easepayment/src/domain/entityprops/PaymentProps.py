@@ -1,7 +1,7 @@
-from dataclasses import dataclass
-from datetime import datetime
-from decimal import Decimal
 from typing import List
+from decimal import Decimal
+from datetime import datetime
+from dataclasses import dataclass
 
 
 @dataclass
