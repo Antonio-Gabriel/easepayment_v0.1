@@ -12,10 +12,10 @@ class TestStudendUseCase(TestCase):
 
         result = create_student.execute(
             StudentRequestDTO(
-                name="António Gabriel",
-                email="antoniocampos@gmail.com",
-                phone="923434222",
-                process=2000,
+                name="Kiala Gabriel",
+                email="kialagabriel@gmail.com",
+                phone="923434223",
+                process=2100,
                 avatar="",
                 district="Hoji-ya-henda",
                 location="Cazenga",
@@ -27,7 +27,7 @@ class TestStudendUseCase(TestCase):
 
         if error:
             print(result.error_value())
-
-        print(result.get_value().id)
+        else:
+            print(result.get_value().id)
 
         self.assertTrue(True)
