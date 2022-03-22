@@ -1,1 +1,2 @@
 from .OwnerRelatedStudent import OwnerRelatedStudentEvent
+from .StudentAutoRelatedEvent import StudentAutoRelatedEvent
