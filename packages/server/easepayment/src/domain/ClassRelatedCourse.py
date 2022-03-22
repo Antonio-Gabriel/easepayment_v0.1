@@ -1,4 +1,5 @@
 from packages.server._shared.src.core.domain import Entity
+from packages.server._shared.src.core.logic import Result
 
 from .entityprops import ClassRelatedCourseProps
 
@@ -14,4 +15,4 @@ class ClassRelatedCourse:
 
         class_related_props = cls.__private(props, id)
 
-        return class_related_props
+        return Result.ok(class_related_props)
