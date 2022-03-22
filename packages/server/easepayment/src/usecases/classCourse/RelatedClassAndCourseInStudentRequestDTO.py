@@ -1,5 +1,5 @@
-from dataclasses import dataclass, fields
 from decimal import Decimal
+from dataclasses import dataclass, fields
 
 
 @dataclass
