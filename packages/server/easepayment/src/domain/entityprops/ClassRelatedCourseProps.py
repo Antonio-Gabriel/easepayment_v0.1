@@ -1,4 +1,3 @@
-from decimal import Decimal
 from dataclasses import dataclass
 
 
@@ -6,5 +5,4 @@ from dataclasses import dataclass
 class ClassRelatedCourseProps:
     classId: str
     courseId: str
-    studentId: str
-    price: Decimal = 0.00
+    price: float = 0.00
