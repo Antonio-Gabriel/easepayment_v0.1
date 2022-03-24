@@ -1,4 +1,3 @@
-from sqlalchemy.sql import select
 from ..sqlAlchemy import engine, enrollment
 
 from ...repositories import IEnrollmentRepository
@@ -23,5 +22,15 @@ class EnrollmentRepository(IEnrollmentRepository):
 
         return result
 
-    def delete(enrollment_props: EnrollmentProps):
+    def delete(class_related_course_id: str, student_id: str):
         """delete enrollment"""
+
+        connection = engine.connect()
+        statement = enrollment.delete().where(
+            enrollment.c.class_related_course_id == class_related_course_id,
+            enrollment.c.student_id == student_id,
+        )
+
+        result = connection.execute(statement)
+
+        return result
