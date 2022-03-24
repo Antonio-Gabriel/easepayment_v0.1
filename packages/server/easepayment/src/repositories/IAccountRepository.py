@@ -8,3 +8,15 @@ class IAccountRepository(ABC):
         """Save account into db"""
 
         raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def find_by_id(account_id: str):
+        """Find account by id"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def update(account_props: AccountProps):
+        """Update account"""
+
+        raise NotImplementedError("Method not implemented")
