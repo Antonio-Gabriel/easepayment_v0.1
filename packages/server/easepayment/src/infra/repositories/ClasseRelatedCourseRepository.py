@@ -1,3 +1,4 @@
+from sqlalchemy.sql import text
 from ..sqlAlchemy import engine, classe_related_course
 
 from ...domain.entityprops import ClassRelatedCourseProps
@@ -21,5 +22,18 @@ class ClasseRelatedCourseRepository(IClasseRelatedCourseRepository):
 
         return result
 
-    def delete(related_props: ClassRelatedCourseProps):
-        """delete stutend related owner into db"""
+    def delete(id: str):
+        """delete class related course into db"""
+
+        connection = engine.connect()
+        stm = text("SET FOREIGN_KEY_CHECKS=0;")
+
+        connection.execute(stm)
+
+        statement = classe_related_course.delete().where(
+            classe_related_course.c.id == id
+        )
+
+        result = connection.execute(statement)
+
+        return result
