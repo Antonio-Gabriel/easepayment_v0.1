@@ -1,4 +1,4 @@
-from sqlalchemy.sql import select
+from sqlalchemy.sql import select, text
 from ..sqlAlchemy import engine, course
 
 from ...repositories import ICourseRepository
@@ -36,5 +36,49 @@ class CourseRepository(ICourseRepository):
 
         return row
 
+    def update(course_props: CourseProps):
+        """update course"""
+
+        connection = engine.connect()
+        statement = (
+            course.update()
+            .values(
+                {
+                    course.c.name: CourseProps.name,
+                    course.c.state: CourseProps.state,
+                }
+            )
+            .where(course.c.id == course_props.id)
+        )
+
+        result = connection.execute(statement)
+
+        return result
+
+    def get():
+        """get all course"""
+
+        connection = engine.connect()
+        query = select(course)
+        result = connection.execute(query).fetchall()
+
+        return result
+
+    def get_by_id(course_id: str):
+        """get course by id"""
+
+        connection = engine.connect()
+        query = select(course).where(course.c.id == course_id)
+        result = connection.execute(query).fetchone()
+
+        return result
+
     def delete(courseId: str):
         """delete course"""
+
+        connection = engine.connect()
+        statement = course.delete().where(course.c.id == courseId)
+
+        result = connection.execute(statement)
+
+        return result
