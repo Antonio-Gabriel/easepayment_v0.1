@@ -4,6 +4,7 @@ from .models import (
     user,
     engine,
     classe,
+    course,
     student,
     owner_related_student,
     metadata_object,
