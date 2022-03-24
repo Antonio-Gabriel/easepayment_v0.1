@@ -16,7 +16,31 @@ class IOwnerRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def get():
+        """get all owners"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def get_by_id(owner_id: str):
+        """get owner by id"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def save(owner_props: OwnerProps):
         """Save owner into db"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def update(owner_props: OwnerProps):
+        """update owner into db"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def delete(owner_id: str):
+        """delete owner into db"""
 
         raise NotImplementedError("Method not implemented")
