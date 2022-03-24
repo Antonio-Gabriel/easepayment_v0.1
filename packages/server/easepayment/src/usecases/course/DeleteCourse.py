@@ -1,11 +1,10 @@
 from typing import Type
 from packages.server._shared import IUseCase
-from .CourseRequestDTO import CourseRequestDTO
 from ...repositories import ICourseRepository
 from packages.server._shared.src.core.logic import Result
 
 
-class DeleteCourse(IUseCase[CourseRequestDTO, Result[None]]):
+class DeleteCourse(IUseCase[None, Result[None]]):
     def __init__(self, course_repo: Type[ICourseRepository]) -> None:
         self.__course_repo = course_repo
 
