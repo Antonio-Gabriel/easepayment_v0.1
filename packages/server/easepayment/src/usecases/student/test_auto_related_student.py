@@ -24,4 +24,4 @@ class TestAutoRelatedStudent(TestCase):
         else:
             print(result.get_value().student_id)
 
-        self.assertTrue(True)
+        self.assertTrue(result.get_value().student_id)
