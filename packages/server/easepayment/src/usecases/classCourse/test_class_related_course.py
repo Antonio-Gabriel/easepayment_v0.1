@@ -4,9 +4,11 @@ from .ClassRelatedCourse import ClassRelatedCourse
 from ...infra.repositories import ClasseRelatedCourseRepository
 from .ClassRelatedCourseRequestDTO import ClassRelatedCourseRequestDTO
 
+from .DeleteClassRelatedCourse import DeleteClassRelatedCourse
+
 
 class TestClassRelatedCourseUsecase(TestCase):
-    def test_owner_usecase_integration(self):
+    def test_class_related_course_usecase_integration(self):
 
         create_class_related_course = ClassRelatedCourse(ClasseRelatedCourseRepository)
         result = create_class_related_course.execute(
@@ -23,5 +25,23 @@ class TestClassRelatedCourseUsecase(TestCase):
             print(result.error_value())
         else:
             print(result.get_value().id)
+
+        self.assertTrue(True)
+
+    def test_delete_related_class_course(self):
+
+        delete_class_related_course = DeleteClassRelatedCourse(
+            ClasseRelatedCourseRepository
+        )
+        result = delete_class_related_course.execute(
+            id="8590a89e-bb7d-43fe-b068-471b15c37748"
+        )
+
+        error = result.error_value()
+
+        if error:
+            print(result.error_value())
+        else:
+            print(result.get_value())
 
         self.assertTrue(True)
