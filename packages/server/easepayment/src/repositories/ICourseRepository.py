@@ -17,6 +17,24 @@ class ICourseRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def update(course_props: CourseProps):
+        """update course"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def get():
+        """get all course"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def get_by_id(course_id: str):
+        """get course by id"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def delete(courseId: str):
         """delete course"""
 
