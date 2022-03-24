@@ -6,6 +6,7 @@ from .WalletProps import WallerProps
 from .AccountProps import AccountProps
 from .StudentProps import StudentProps
 from .PaymentProps import PaymentProps
+from .EnrollmentProps import EnrollmentProps
 from .MonthlyPaymentProps import MonthlyPaymentProps
 from .ClassRelatedCourseProps import ClassRelatedCourseProps
 from .StudentRelatedOwnerProps import StudentRelatedOwnerProps

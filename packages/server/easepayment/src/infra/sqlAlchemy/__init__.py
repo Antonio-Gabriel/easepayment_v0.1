@@ -6,6 +6,7 @@ from .models import (
     classe,
     course,
     student,
+    enrollment,
     owner_related_student,
     metadata_object,
     classe_related_course,
