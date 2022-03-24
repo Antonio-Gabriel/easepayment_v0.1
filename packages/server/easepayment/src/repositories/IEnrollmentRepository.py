@@ -10,7 +10,7 @@ class IEnrollmentRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
-    def delete(enrollment_props: EnrollmentProps):
+    def delete(class_related_course_id: str, student_id: str):
         """Delete enrollment"""
 
         raise NotImplementedError("Method not implemented")
