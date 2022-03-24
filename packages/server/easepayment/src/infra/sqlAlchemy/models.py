@@ -74,10 +74,21 @@ course = Table(
 classe_related_course = Table(
     "class_related_course",
     metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
     Column("classe_id", String(40), ForeignKey("classe.id")),
     Column("course_id", String(40), ForeignKey("course.id")),
-    Column("student_id", String(40), ForeignKey("student.id")),
     Column("price", Float, default=0.00),
+)
+
+enrollment = Table(
+    "enrollment",
+    metadata_object,
+    Column(
+        "class_related_course_id", String(40), ForeignKey("class_related_course.id")
+    ),
+    Column("student_id", String(40), ForeignKey("student.id")),
+    Column("created_at", TIMESTAMP, default=datetime.now),
+    Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
 )
 
 
