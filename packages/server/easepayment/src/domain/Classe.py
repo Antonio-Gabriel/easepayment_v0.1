@@ -1,3 +1,4 @@
+from uuid import uuid4
 from .entityprops import ClassProps
 
 from packages.server._shared.src.core.domain import Entity
@@ -11,6 +12,9 @@ class Classe:
     @classmethod
     def create(cls, props: ClassProps, id: int = None):
         """create class object"""
+
+        if not id:
+            id = uuid4()
 
         classe = cls.__private(props, id)
 
