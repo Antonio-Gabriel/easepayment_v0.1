@@ -10,12 +10,6 @@ class IClasseRelatedCourseRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
-    def find_student_associeted(student_id: str):
-        """Find student associeted"""
-
-        raise NotImplementedError("Method not implemented")
-
-    @abstractmethod
     def delete(related_props: ClassRelatedCourseProps):
         """delete classe related course with student"""
 
