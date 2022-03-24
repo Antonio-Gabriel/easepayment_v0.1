@@ -49,3 +49,51 @@ class OwnerRepository(IOwnerRepository):
         )
 
         return result
+
+    def get():
+        """get all owners"""
+
+        connection = engine.connect()
+        query = select(owner)
+        result = connection.execute(query).fetchall()
+
+        return result
+
+    def get_by_id(owner_id: str):
+        """get owner by id"""
+
+        connection = engine.connect()
+        query = select(owner).where(owner.c.id == owner_id)
+        result = connection.execute(query).fetchone()
+
+        return result
+
+    def update(owner_props: OwnerProps):
+        """update owner into db"""
+
+        connection = engine.connect()
+        statement = (
+            owner.update()
+            .values(
+                {
+                    owner.c.name: owner_props.name,
+                    owner.c.phone: owner_props.phone,
+                    owner.c.email: owner_props.email,
+                }
+            )
+            .where(owner.c.id == owner_props.id)
+        )
+
+        result = connection.execute(statement)
+
+        return result
+
+    def delete(owner_id: str):
+        """delete owner into db"""
+
+        connection = engine.connect()
+        statement = owner.delete().where(owner.c.id == owner_id)
+
+        result = connection.execute(statement)
+
+        return result
