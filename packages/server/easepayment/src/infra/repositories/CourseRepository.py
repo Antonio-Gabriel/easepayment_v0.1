@@ -42,12 +42,7 @@ class CourseRepository(ICourseRepository):
         connection = engine.connect()
         statement = (
             course.update()
-            .values(
-                {
-                    course.c.name: CourseProps.name,
-                    course.c.state: CourseProps.state,
-                }
-            )
+            .values({course.c.name: course_props.name})
             .where(course.c.id == course_props.id)
         )
 
@@ -77,7 +72,15 @@ class CourseRepository(ICourseRepository):
         """delete course"""
 
         connection = engine.connect()
-        statement = course.delete().where(course.c.id == courseId)
+        statement = (
+            course.update()
+            .values(
+                {
+                    course.c.state: False,
+                }
+            )
+            .where(course.c.id == courseId)
+        )
 
         result = connection.execute(statement)
 
