@@ -26,3 +26,9 @@ class IStudentRepository(ABC):
         """Save student into db"""
 
         raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def update(student_props: StudentProps):
+        """Update student into db"""
+
+        raise NotImplementedError("Method not implemented")

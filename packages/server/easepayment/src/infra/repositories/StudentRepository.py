@@ -66,3 +66,25 @@ class StudentRepository(IStudentRepository):
         )
 
         return result
+
+    def update(student_props: StudentProps):
+        """Update student into db"""
+
+        connection = engine.connect()
+        statement = (
+            student.update()
+            .values(
+                {
+                    student.c.name: student_props.name,
+                    student.c.phone: student_props.phone,
+                    student.c.email: student_props.email,
+                    student.c.district: student_props.district,
+                    student.c.location: student_props.location,
+                }
+            )
+            .where(student.c.process == student_props.process)
+        )
+
+        result = connection.execute(statement)
+
+        return result
