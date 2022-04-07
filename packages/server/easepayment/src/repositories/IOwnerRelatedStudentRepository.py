@@ -16,7 +16,7 @@ class IOwnerRelatedStudentRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
-    def delete(related_props: StudentRelatedOwnerProps):
+    def delete(student_id: str, owner_id: str):
         """delete stutend related owner into db"""
 
         raise NotImplementedError("Method not implemented")

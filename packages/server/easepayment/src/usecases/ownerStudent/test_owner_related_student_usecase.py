@@ -1,5 +1,7 @@
 from unittest import TestCase
 
+from .UnrelatedStudentInOwner import UnrelatedStudentInOwner
+
 from .RelatedStudentInOwner import RelatedStudentInOwner
 from ...infra.repositories import OwnerRelatedStudentRepository
 from .RelatedStudentInOwnerRequestDTO import RelatedStudentInOwnerRequestDTO
@@ -11,8 +13,8 @@ class TestRelatedOwnerWithStudent(TestCase):
         related_student = RelatedStudentInOwner(OwnerRelatedStudentRepository)
         result = related_student.execute(
             RelatedStudentInOwnerRequestDTO(
-                studentId="d8db5d3a-0cf9-446f-8c1d-21dd703273c1",
-                ownerId="73b2e45e-5ea3-483a-9bef-7d6fc7da5028",
+                studentId="8aec3a87-b85e-4833-bcb9-34b8e251b19f",
+                ownerId="418a947c-cf18-405d-abc0-c8f662eff753",
             )
         )
 
@@ -23,5 +25,17 @@ class TestRelatedOwnerWithStudent(TestCase):
 
         else:
             print(result.get_value().props)
+
+        self.assertTrue(True)
+
+    def test_unrelated_student_in_owner(self):
+
+        related_student = UnrelatedStudentInOwner(OwnerRelatedStudentRepository)
+        result = related_student.execute(
+            student_id="8aec3a87-b85e-4833-bcb9-34b8e251b19f",
+            owner_id="418a947c-cf18-405d-abc0-c8f662eff753",
+        )
+
+        print(result)
 
         self.assertTrue(True)

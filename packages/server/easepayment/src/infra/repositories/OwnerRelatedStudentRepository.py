@@ -34,5 +34,14 @@ class OwnerRelatedStudentRepository(IOwnerRelatedStudentRepository):
 
         return row
 
-    def delete(related_props: StudentRelatedOwnerProps):
+    def delete(student_id: str, owner_id: str):
         """delete stutend related owner into db"""
+        connection = engine.connect()
+        statement = owner_related_student.delete().where(
+            owner_related_student.c.owner_id == owner_id,
+            owner_related_student.c.student_id == student_id,
+        )
+
+        result = connection.execute(statement)
+
+        return result
