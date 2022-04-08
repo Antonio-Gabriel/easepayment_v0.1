@@ -11,8 +11,8 @@ class TestUserUsecase(TestCase):
         create_user = CreateUser(UserRepository)
         result = create_user.execute(
             UserRequestDTO(
-                account_id="ffa36764-84c3-4596-9178-0fa2bf95450d",
-                owner_id="73b2e45e-5ea3-483a-9bef-7d6fc7da5028",
+                account_id="70b2f996-b811-4962-8f70-fda6f4f949cc",
+                owner_id="418a947c-cf18-405d-abc0-c8f662eff753",
                 student_id=None,
                 state=True,
             )
