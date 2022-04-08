@@ -104,6 +104,16 @@ user = Table(
     Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
 )
 
+wallet = Table(
+    "wallet",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("balance", Float, default=0.00),
+    Column("user_id", String(40), ForeignKey("user.id")),   
+    Column("created_at", TIMESTAMP, default=datetime.now),
+    Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
+)
+
 owner_related_student = Table(
     "student_related_owner",
     metadata_object,
