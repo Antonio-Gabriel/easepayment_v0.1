@@ -2,6 +2,7 @@ from .User import User
 from .Owner import Owner
 from .Classe import Classe
 from .Course import Course
+from .Wallet import Wallet
 from .Account import Account
 from .Payment import Payment
 from .Student import Student
@@ -9,3 +10,4 @@ from .interfaces import IPayment
 from .Enrollment import Enrollment
 from .ClassRelatedCourse import ClassRelatedCourse
 from .StudentRelatedOwner import StudentRelatedOwner
+from .entityprops import *

@@ -6,8 +6,10 @@ from .StudentRepository import StudentRepository
 from .events import OwnerRelatedStudentEvent
 from .events import StudentAutoRelatedEvent
 
+from .WalletRepository import WalletRepository
 from .CourseRepository import CourseRepository
 from .EnrollmentRepository import EnrollmentRepository
+
 
 from .StudentAutoRelatedRepository import StudentAutoRelatedRepository
 from .OwnerRelatedStudentRepository import OwnerRelatedStudentRepository
