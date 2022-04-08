@@ -46,6 +46,30 @@ class StudentRepository(IStudentRepository):
 
         return row
 
+    def get():
+        """Get All students"""
+        connection = engine.connect()
+        query = select(student)
+        result = connection.execute(query)
+
+        row = result.fetchall()
+
+        result.close()
+
+        return row
+
+    def get_by_id(student_id: str):
+        """Get student by id"""
+        connection = engine.connect()
+        query = select(student).where(student.c.id == student_id)
+        result = connection.execute(query)
+
+        row = result.fetchone()
+
+        result.close()
+
+        return row
+
     def save(student_props: StudentProps):
         """Save student into db"""
 
@@ -84,6 +108,16 @@ class StudentRepository(IStudentRepository):
             )
             .where(student.c.process == student_props.process)
         )
+
+        result = connection.execute(statement)
+
+        return result
+
+    def delete(process: str):
+        """Delete student into db"""
+
+        connection = engine.connect()
+        statement = student.delete().where(student.c.process == process)
 
         result = connection.execute(statement)
 

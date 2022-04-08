@@ -36,5 +36,19 @@ class StudentAutoRelatedRepository(IStudentAutoRelated):
 
         return row
 
+    def unrelated(owner_student_id: str, student_id: str):
+        """Unrelated student into db"""
+        connection = engine.connect()
+
+        statement = (
+            student.update()
+            .where(student.c.id == owner_student_id, student.c.student_id == student_id)
+            .values(student_id="")
+        )
+
+        result = connection.execute(statement)
+
+        return result
+
     def delete(related_props: StudentProps):
         """delete stutend related owner into db"""
