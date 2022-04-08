@@ -16,6 +16,12 @@ class IStudentAutoRelated(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def unrelated(owner_student_id: str, student_id: str):
+        """Unrelated student into db"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def delete(related_props: StudentProps):
         """delete stutend related owner into db"""
 

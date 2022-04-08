@@ -22,6 +22,18 @@ class IStudentRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def get():
+        """Get All students"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def get_by_id(student_id: str):
+        """Get student by id"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def save(student_props: StudentProps):
         """Save student into db"""
 
@@ -30,5 +42,11 @@ class IStudentRepository(ABC):
     @abstractmethod
     def update(student_props: StudentProps):
         """Update student into db"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
+    def delete(process: str):
+        """Delete student into db"""
 
         raise NotImplementedError("Method not implemented")
