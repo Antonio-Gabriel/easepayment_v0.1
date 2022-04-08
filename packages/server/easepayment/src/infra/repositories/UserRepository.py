@@ -24,3 +24,21 @@ class UserRepository(IUserRepository):
         )
 
         return result
+
+    def remove(user_id: str):
+        """Remove user into db"""
+
+        connection = engine.connect()
+        statement = (
+            user.update()
+            .values(
+                {
+                    user.c.id: user_id,
+                }
+            )
+            .where(user.c.state == 0)
+        )
+
+        result = connection.execute(statement)
+
+        return result
