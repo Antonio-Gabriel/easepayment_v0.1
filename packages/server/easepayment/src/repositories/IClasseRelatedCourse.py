@@ -10,6 +10,12 @@ class IClasseRelatedCourseRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def get_class_with_courses():
+        """Get all classes with respective courses"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def delete(id: str):
         """delete classe related course with student"""
 

@@ -5,7 +5,12 @@ from .ICourseRepository import ICourseRepository
 from .IWalletRepository import IWalletRepository
 from .IAccountRepository import IAccountRepository
 from .IStudentRepository import IStudentRepository
+from .IMonthlyRepository import IMonthlyRepository
+
 from .IStudentAutoRelated import IStudentAutoRelated
 from .IEnrollmentRepository import IEnrollmentRepository
+
+from .IUniformRepository import IUniformRepository
+
 from .IClasseRelatedCourse import IClasseRelatedCourseRepository
 from .IOwnerRelatedStudentRepository import IOwnerRelatedStudentRepository

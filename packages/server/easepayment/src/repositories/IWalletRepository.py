@@ -15,6 +15,12 @@ class IWalletRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def get_user(user_id: str):
+        """Get wallet by user"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def initialize(user_id: str):
         """Initialize wallet"""
 

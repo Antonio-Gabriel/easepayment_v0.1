@@ -1,5 +1,5 @@
-from sqlalchemy.sql import text
-from ..sqlAlchemy import engine, classe_related_course
+from sqlalchemy.sql import text, select
+from ..sqlAlchemy import engine, classe_related_course, course, classe
 
 from ...domain.entityprops import ClassRelatedCourseProps
 from ...repositories import IClasseRelatedCourseRepository
@@ -19,6 +19,25 @@ class ClasseRelatedCourseRepository(IClasseRelatedCourseRepository):
                 "price": related_props.price,
             },
         )
+
+        return result
+
+    def get_class_with_courses():
+        connection = engine.connect()
+        query = select(
+            [
+                classe_related_course.c.id,
+                course.c.name,
+                classe.c.name,
+                classe_related_course.c.price,
+            ]
+        ).select_from(
+            classe_related_course.outerjoin(
+                course, classe_related_course.c.course_id == course.c.id
+            ).outerjoin(classe, classe_related_course.c.classe_id == classe.c.id)
+        )
+
+        result = connection.execute(query).fetchall()
 
         return result
 

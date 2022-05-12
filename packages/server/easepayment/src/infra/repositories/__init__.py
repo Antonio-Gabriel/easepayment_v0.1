@@ -14,3 +14,8 @@ from .EnrollmentRepository import EnrollmentRepository
 from .StudentAutoRelatedRepository import StudentAutoRelatedRepository
 from .OwnerRelatedStudentRepository import OwnerRelatedStudentRepository
 from .ClasseRelatedCourseRepository import ClasseRelatedCourseRepository
+
+
+from .MonthlyRepository import MonthlyRepository
+from .PaymentRepository import PaymentRepository
+from .UniformRepository import UniformRepository

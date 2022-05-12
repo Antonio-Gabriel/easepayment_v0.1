@@ -1,5 +1,5 @@
 from sqlalchemy.sql import select
-from ..sqlAlchemy import engine, wallet
+from ..sqlAlchemy import engine, wallet, user, owner
 
 from ...repositories import IWalletRepository
 
@@ -30,6 +30,23 @@ class WalletRepository(IWalletRepository):
         )
 
         result = connection.execute(statement)
+
+        return result
+
+    def get_user(user_id: str):
+        """Get wallet by user"""
+        connection = engine.connect()
+        query = (
+            select([user.c.id, owner.c.name, wallet.c.balance])
+            .select_from(
+                wallet.outerjoin(user, wallet.c.user_id == user.c.id).outerjoin(
+                    owner, user.c.owner_id == owner.c.id
+                )
+            )
+            .where(user.c.id == user_id)
+        )
+
+        result = connection.execute(query).fetchone()
 
         return result
 

@@ -1,4 +1,5 @@
-from ..sqlAlchemy import engine, user
+from sqlalchemy.sql import select
+from ..sqlAlchemy import engine, user, account, owner
 
 from ...repositories import IUserRepository
 
@@ -22,6 +23,56 @@ class UserRepository(IUserRepository):
                 "state": user_props.state,
             },
         )
+
+        return result
+
+    def get(user_id: str):
+        """Get user by id"""
+        connection = engine.connect()
+        query = (
+            select(
+                [
+                    user.c.id,
+                    owner.c.id,
+                    owner.c.name,
+                    account.c.username,
+                    owner.c.email,
+                    owner.c.phone,
+                    user.c.created_at,
+                    user.c.updated_at,
+                ]
+            )
+            .select_from(
+                user.outerjoin(account, user.c.account_id == account.c.id).outerjoin(
+                    owner, user.c.owner_id == owner.c.id
+                )
+            )
+            .where(user.c.id == user_id)
+        )
+
+        result = connection.execute(query).fetchone()
+
+        return result
+
+    def get_user_by_owner_id(owner_id: str):
+        """Get user by owner id"""
+        connection = engine.connect()
+        query = (
+            select(
+                [
+                    user.c.id,
+                    account.c.password,
+                ]
+            )
+            .select_from(
+                user.outerjoin(account, user.c.account_id == account.c.id).outerjoin(
+                    owner, user.c.owner_id == owner.c.id
+                )
+            )
+            .where(user.c.owner_id == owner_id)
+        )
+
+        result = connection.execute(query).fetchone()
 
         return result
 

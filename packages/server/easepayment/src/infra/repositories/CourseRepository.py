@@ -42,7 +42,9 @@ class CourseRepository(ICourseRepository):
         connection = engine.connect()
         statement = (
             course.update()
-            .values({course.c.name: course_props.name})
+            .values(
+                {course.c.name: course_props.name, course.c.state: course_props.state}
+            )
             .where(course.c.id == course_props.id)
         )
 

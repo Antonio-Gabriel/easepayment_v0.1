@@ -16,6 +16,12 @@ class IOwnerRelatedStudentRepository(ABC):
         raise NotImplementedError("Method not implemented")
 
     @abstractmethod
+    def get(owner_id: str):
+        """Get"""
+
+        raise NotImplementedError("Method not implemented")
+
+    @abstractmethod
     def delete(student_id: str, owner_id: str):
         """delete stutend related owner into db"""
 

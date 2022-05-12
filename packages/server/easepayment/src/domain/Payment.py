@@ -1,13 +1,16 @@
 from uuid import uuid4
+from dataclasses import dataclass
 
-from typing import Type
 from datetime import datetime
-from .interfaces import IPayment
 from .entityprops import PaymentProps
-from .events import PaymentBasedCreatedEvent
 
 from packages.server._shared.src.core.logic import Result
 from packages.server._shared.src.core.domain import Entity
+
+
+@dataclass
+class PaymentPropsResult(PaymentProps):
+    id: str = None
 
 
 class Payment:
@@ -15,14 +18,12 @@ class Payment:
         def __init__(
             self,
             props: PaymentProps,
-            id: Type[uuid4] = None,
+            id: str = None,
         ):
             super().__init__(props, id)
 
     @classmethod
-    def create(
-        cls, props: PaymentProps, payment_type: Type[IPayment], id: Type[uuid4] = None
-    ):
+    def create(cls, props: PaymentProps, id: str = None):
         """create Payment object"""
 
         if not id:
@@ -36,7 +37,13 @@ class Payment:
 
         payment = cls.__private(props, id)
 
-        payment_created_event = PaymentBasedCreatedEvent()
-        payment_created_event.dispatch(payment, payment_type)
-
-        return Result.ok(payment.props)
+        return Result.ok(
+            PaymentPropsResult(
+                id=id,
+                userId=payment.props.userId,
+                studentId=payment.props.studentId,
+                value=payment.props.value,
+                created_at=payment.props.created_at,
+                updated_at=payment.props.updated_at,
+            )
+        )

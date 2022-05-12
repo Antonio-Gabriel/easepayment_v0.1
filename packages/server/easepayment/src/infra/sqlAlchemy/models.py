@@ -12,7 +12,6 @@ from sqlalchemy import (
     MetaData,
     ForeignKey,
     Boolean,
-    DateTime,
     TIMESTAMP,
 )
 
@@ -109,7 +108,7 @@ wallet = Table(
     metadata_object,
     Column("id", String(40), nullable=False, primary_key=True),
     Column("balance", Float, default=0.00),
-    Column("user_id", String(40), ForeignKey("user.id")),   
+    Column("user_id", String(40), ForeignKey("user.id")),
     Column("created_at", TIMESTAMP, default=datetime.now),
     Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
 )
@@ -119,6 +118,41 @@ owner_related_student = Table(
     metadata_object,
     Column("owner_id", String(40), ForeignKey("owner.id")),
     Column("student_id", String(40), ForeignKey("student.id")),
+)
+
+payment = Table(
+    "payment",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("user_id", String(40), ForeignKey("user.id")),
+    Column("student_id", String(40), ForeignKey("student.id")),
+    Column("amount", Float, default=0.00),
+    Column("created_at", TIMESTAMP, default=datetime.now),
+    Column("updated_at", TIMESTAMP, default=datetime.now, onupdate=datetime.now),
+)
+
+monthly_payment = Table(
+    "monthly_payment",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("month", String(40), nullable=False),
+    Column("payment_id", String(40), ForeignKey("payment.id")),
+)
+
+uniform_type = Table(
+    "uniform_type",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),
+    Column("type", String(20), nullable=False),
+    Column("price", Float, default=0.00),
+)
+
+uniform_payment = Table(
+    "uniform_payment",
+    metadata_object,
+    Column("id", String(40), nullable=False, primary_key=True),    
+    Column("payment_id", String(40), ForeignKey("payment.id")),
+    Column("uniform_type_id", String(40), ForeignKey("uniform_type.id")),
 )
 
 metadata_object.create_all()
